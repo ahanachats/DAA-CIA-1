@@ -13,9 +13,6 @@ The algorithm is as follows:
 
 
 Code in C: 
-(I have chosen C as we have learnt these algorithms in C language in the previous semester. 
-It is not an object oriented language but I am comfortable coding these algorithms in C.)
-
 
 #include<stdio.h>
 #include<stdbool.h>
