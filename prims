@@ -1,0 +1,111 @@
+Prim's algorithm is a minimum spanning tree algorithm that takes a graph as input and finds the subset of the edges of that graph.
+
+The algorithm is as follows:
+
+1. Initialize the MST with a vertex chosen at random.
+2. Find all the edges that connect the tree to new vertices, find the minimum and add it to the tree.
+3. Keep repeating step 2 until we get a MST.
+
+
+Code in C: 
+(I have chosen C as we have learnt these algorithms in C language in the previous semester. 
+It is not an object oriented language but I am comfortable coding these algorithms in C.)
+
+
+#include<stdio.h>
+#include<stdbool.h>
+#include<string.h>
+#define INF 9999999
+
+int main()
+{
+   int no_edge;
+   int V;
+   printf("Enter the number of Vertices : ");
+   scanf("%d",&V);
+   int selected[V];
+   int s = 0;
+   char opt;
+   int G[V][V] , begin ,end , cost;
+   
+   for (int i = 0;i<V;i++)
+   {
+   for (int j = 0;j<V;j++)
+   {
+   G[i][j] = -1;
+   }
+   }
+   while (true)
+   {
+   
+   printf("Begin : ");
+   scanf("%d",&begin);
+   printf("End : ");
+   scanf("%d",&end);
+   printf("Cost : ");
+  scanf("%d",&cost);
+  if (!((begin<V) && (end<V)))
+  {
+  printf("Invalid\n");
+  s=1;
+  }
+  else
+  {
+   G[begin][end] = cost;
+  }
+  if (s)
+   {
+  s=1;
+ continue;
+   }
+   else
+   {
+   printf("Do you want to continue (y/n): ");
+   scanf(" %c",&opt);
+   if (opt!='y')
+   {
+    break;
+    }
+  }
+
+ }
+  
+  for (int i = 0;i<V;i++)
+  {
+  selected[i] = false;
+  }
+  no_edge = 0;
+  selected[0] = true;
+  int x; // row number
+  int y; // col number
+  // print for edge and weight
+  printf("Edge : Weight\n");
+  while (no_edge < V - 1)
+  {
+  int min = INF;
+  x = 0;
+  y = 0;
+  for (int i = 0; i < V; i++)
+  {
+  if (selected[i])
+  {
+   for (int j = 0; j < V; j++)
+   {
+  if (!selected[j] && G[i][j])
+   {
+   if (min > G[i][j])
+   {
+   min = G[i][j];
+   x = i;
+   y = j;
+   }
+   }
+   }
+ }
+ }
+ printf("%d - %d : %d\n", x, y,G[x][y]);
+ selected[y] = true;
+ no_edge++;
+ }
+ return 0;
+}
