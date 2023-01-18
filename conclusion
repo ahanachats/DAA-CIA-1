@@ -1,0 +1,11 @@
+Comparison report:
+
+All 3 algorithms are unable to handle negative directed graphs.
+Therefore, an alternate approach would be to use the Bellmann-Ford algorithm.
+It finds the shortest path from the source vertex to all the other vertices in a weighted graph.
+However, it is slower than Djikstra's as it handles graphs with negative edges.
+
+Justification for chosen language:
+
+I have chosen C as we have learnt these algorithms in C language in the previous semester. 
+It is not an object oriented language but I am comfortable coding these algorithms in C.
