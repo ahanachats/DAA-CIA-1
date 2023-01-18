@@ -1,5 +1,9 @@
 Prim's algorithm is a minimum spanning tree algorithm that takes a graph as input and finds the subset of the edges of that graph.
-Prim's algorithm only works on undirected graphs. But it can handle negative edge weights.
+It only works on undirected graphs. But it can handle negative edge weights.
+
+Prim’s algorithm assumes that all vertices are connected. 
+But in a directed graph, every node is not reachable from every other node. 
+Hence, the algorithm fails in directed graphs.
 
 The algorithm is as follows:
 
